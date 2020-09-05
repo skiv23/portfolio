@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/BackendDockerfile
+    command: /code/docker/start_backend.sh
+    volumes:
+      - ./backend:/code
+      - ./docker:/code/docker
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/FrontendDockerfile
+    command: /code/docker/start_frontend.sh
+    volumes:
+      - ./frontend:/code
+      - ./docker:/code/docker
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
