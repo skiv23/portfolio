@@ -1,6 +1,22 @@
 <template>
   <div id="app">
     <div class="cv">
+      <ul class="menu">
+        <router-link :to="{ name: 'home' }" v-slot="{ href, route, navigate, isActive, isExactActive }">
+          <li>
+            <a :class="{ active: isExactActive }" :href="href" @click="navigate">
+              <font-awesome-icon icon="home"/>
+            </a>
+          </li>
+        </router-link>
+        <router-link :to="{ name: 'about' }" v-slot="{ href, route, navigate, isActive, isExactActive }">
+          <li>
+            <a :class="{ active: isExactActive }" :href="href" @click="navigate">
+              <font-awesome-icon icon="user"/>
+            </a>
+          </li>
+        </router-link>
+      </ul>
       <div class="cv-left">
         <div class="cv-photo">
           <img src="./assets/photo.png" alt="photo">
@@ -19,7 +35,7 @@
       </div>
       <div class="cv-right">
         <div class="cv-right-container">
-          <SlideHome/>
+          <router-view></router-view>
         </div>
       </div>
     </div>
@@ -27,13 +43,10 @@
 </template>
 
 <script>
-  import SlideHome from './components/SlideHome.vue'
 
   export default {
     name: 'App',
-    components: {
-      SlideHome
-    }
+    components: {}
   }
 </script>
 

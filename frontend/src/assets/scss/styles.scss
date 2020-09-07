@@ -35,6 +35,37 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    .menu {
+      position: absolute;
+      padding: 15px 0;
+      width: 70px;
+      right: -90px;
+      background-color: #fff;
+      border-radius: 35px;
+      z-index: 999;
+      list-style: none;
+      top: 0;
+      -webkit-box-shadow: 0 0 30px -5px rgba(0, 0, 0, .15);
+      -moz-box-shadow: 0 0 30px -5px rgba(0, 0, 0, .15);
+      box-shadow: 0 0 30px -5px rgba(0, 0, 0, .15);
+      li {
+        a {
+          font-size: 24px;
+          display: block;
+          position: relative;
+          color: #b5b6b7;
+          padding: 10px;
+          -webkit-transition: all .3s ease-in-out;
+          -moz-transition: all .3s ease-in-out;
+          -o-transition: all .3s ease-in-out;
+          -ms-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+          &.active, &:hover {
+            color: #04b4e0;
+          }
+        }
+      }
+    }
     .cv {
       position: relative;
       width: 100%;
