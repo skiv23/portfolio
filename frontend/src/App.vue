@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="cv">
+      <div class="cv-left">
+        <div class="cv-photo">
+          <img src="./assets/photo.png" alt="photo">
+        </div>
+        <div class="cv-titles">
+          <h2>Sergey Bondar</h2>
+          <h4>Web developer</h4>
+        </div>
+        <div class="cv-social-links">
+          <ul>
+            <li><a href="#" target="_blank">
+              <font-awesome-icon :icon="['fab', 'linkedin-in']"/>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="cv-right">
+        <div class="cv-right-container">
+          <SlideHome/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import SlideHome from './components/SlideHome.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      SlideHome
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import 'src/assets/scss/styles.scss';
 </style>
