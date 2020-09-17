@@ -32,10 +32,11 @@
     },
     watch: {
       '$route'(to, from) {
-        let paths = ['/', '/about']
+        const paths = this.$router.options.routes.map(route => {
+            return route.path
+        })
         const toDepth = paths.indexOf(to.path)
         const fromDepth = paths.indexOf(from.path)
-        console.log(to, from, toDepth, fromDepth)
         this.transitionName = toDepth < fromDepth ? 'moveDown' : 'moveUp'
       }
     }

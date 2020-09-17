@@ -19,7 +19,7 @@ Vue.config.productionTip = false
 
 const routes = [
   { path: '/', component: SlideHome, name: 'home' },
-  { path: '/about/', component: SlideAbout, name: 'about' },
+  { path: '/about', component: SlideAbout, name: 'about' },
 ]
 
 const router = new VueRouter({
