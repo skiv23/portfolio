@@ -14,12 +14,19 @@
         </a>
       </li>
     </router-link>
+    <router-link :to="{ name: 'cv' }" v-slot="{ href, route, navigate, isActive, isExactActive }">
+      <li>
+        <a :class="{ active: isExactActive }" :href="href" @click="navigate">
+          <font-awesome-icon icon="graduation-cap"/>
+        </a>
+      </li>
+    </router-link>
   </ul>
 </template>
 
 <script>
   export default {
-    name: "Menu"
+    name: "MenuNav"
   }
 </script>
 

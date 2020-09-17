@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div class="cv">
-      <Menu/>
+      <MenuNav/>
+      <ArrowNav/>
       <InfoSidebar/>
 
       <div class="cv-right">
@@ -17,13 +18,15 @@
 
 <script>
   import InfoSidebar from './components/InfoSidebar.vue'
-  import Menu from './components/Menu.vue'
+  import MenuNav from './components/MenuNav.vue'
+  import ArrowNav from './components/ArrowNav.vue'
 
   export default {
     name: 'App',
     components: {
       InfoSidebar,
-      Menu
+      MenuNav,
+      ArrowNav,
     },
     data () {
       return {
