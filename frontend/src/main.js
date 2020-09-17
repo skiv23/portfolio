@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faUser, faEnvelope, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faUser, faEnvelope, faPaperPlane, faCogs, faLaptopCode } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -11,7 +11,7 @@ import SlideAbout from './components/SlideAbout.vue'
 
 Vue.use(VueRouter)
 
-library.add(faLinkedinIn, faHome, faUser, faEnvelope, faPaperPlane)
+library.add(faLinkedinIn, faHome, faUser, faEnvelope, faPaperPlane, faCogs, faLaptopCode)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

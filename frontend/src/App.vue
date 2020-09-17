@@ -6,7 +6,9 @@
 
       <div class="cv-right">
         <div class="cv-right-container">
+          <transition :name="transitionName">
           <router-view></router-view>
+            </transition>
         </div>
       </div>
     </div>
@@ -22,6 +24,20 @@
     components: {
       InfoSidebar,
       Menu
+    },
+    data () {
+      return {
+        transitionName: ''
+      }
+    },
+    watch: {
+      '$route'(to, from) {
+        let paths = ['/', '/about']
+        const toDepth = paths.indexOf(to.path)
+        const fromDepth = paths.indexOf(from.path)
+        console.log(to, from, toDepth, fromDepth)
+        this.transitionName = toDepth < fromDepth ? 'moveDown' : 'moveUp'
+      }
     }
   }
 </script>
