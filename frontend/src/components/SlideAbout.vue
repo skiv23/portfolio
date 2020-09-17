@@ -4,7 +4,6 @@
       <h2>About Me</h2>
     </div>
     <div class="cv-details-section-content">
-      <!-- Personal Information -->
       <div class="row">
         <div class="cv-details-section-content-left">
           <p>Proin volutpat mauris ac pellentesque pharetra. Suspendisse congue elit vel odio suscipit, sit amet tempor
@@ -48,11 +47,9 @@
           </div>
         </div>
       </div>
-      <!-- End of Personal Information -->
 
       <div class="white-space-50"></div>
 
-      <!-- Services -->
       <div class="row">
         <div>
           <div class="block-title">
@@ -88,7 +85,6 @@
           </div>
         </div>
       </div>
-      <!-- End of Services -->
 
     </div>
   </section>
