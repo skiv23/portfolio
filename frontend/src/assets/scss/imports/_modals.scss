@@ -1,0 +1,108 @@
+.page-ajax-loaded {
+  position: fixed;
+  background-color: #fff;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+  .ajax-page-content {
+    height: 100%;
+    overflow: auto;
+    background-color: #fff;
+    .ajax-page-wrapper {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 20px 60px 50px;
+      .ajax-page-nav {
+        text-align: right;
+        .nav-item {
+          position: relative;
+          display: inline-block;
+          margin: 0 3px;
+          background-color: #eee;
+          &:hover {
+            background-color: #04b4e0;
+            #ajax-page-close-button {
+              color: #fff;
+            }
+          }
+          #ajax-page-close-button {
+            color: #888;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 22px;
+            transform: rotate(45deg);
+          }
+        }
+      }
+      .ajax-page-title {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        text-align: left;
+      }
+      .portfolio-block {
+        padding-top: 30px;
+        &.portfolio-block-left {
+          flex: 0 0 66.66%;
+          max-width: 66.66%;
+        }
+        &.portfolio-block-right {
+          flex: 0 0 33.33%;
+          max-width: 33.33%;
+        }
+        .project-description {
+          display: block;
+          position: relative;
+          padding: 20px 25px 25px;
+          background-color: #fcfcfc;
+          .project-general-info li {
+            margin: 0 0 10px;
+            svg {
+              color: #04b4e0;
+              margin-right: 5px;
+            }
+          }
+          .tags-block {
+            margin: 25px 0 0;
+            .tags {
+              li {
+                display: inline-block;
+                a {
+                  display: inline-block;
+                  font-size: 12px;
+                  line-height: 1.5em;
+                  color: #666;
+                  padding: 2px 7px;
+                  background-color: #fff;
+                  border-radius: 3px;
+                  border: 1px solid #e5e5e5;
+                  margin: 3px 2px 2px;
+                }
+              }
+            }
+          }
+        }
+        .vue-flux {
+          .complements {
+            .flux-button {
+              &.play {
+                display: none;
+              }
+              &:hover {
+                svg polyline {
+                  stroke: #04b4e0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

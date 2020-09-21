@@ -21,6 +21,13 @@
         </a>
       </li>
     </router-link>
+    <router-link :to="{ name: 'portfolio' }" v-slot="{ href, route, navigate, isActive, isExactActive }">
+      <li>
+        <a :class="{ active: isExactActive }" :href="href" @click="navigate">
+          <font-awesome-icon icon="briefcase"/>
+        </a>
+      </li>
+    </router-link>
   </ul>
 </template>
 

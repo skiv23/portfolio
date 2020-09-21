@@ -163,9 +163,9 @@
       .cv-right-container {
         position: relative;
         height: 100%;
-        -webkit-perspective: 1500px;
-        -moz-perspective: 1500px;
-        perspective: 1500px;
+        //-webkit-perspective: 1500px;
+        //-moz-perspective: 1500px;
+        //perspective: 1500px;
         -webkit-backface-visibility: hidden;
         -moz-backface-visibility: hidden;
         backface-visibility: hidden;
@@ -246,186 +246,201 @@
             }
           }
           .cv-details-section-content {
-            .row {
-              display: flex;
-              flex-direction: row;
-              .cv-details-section-content-left,
-              .cv-details-section-content-right {
-                flex: 0 0 50%;
-                .info-list {
-                  ul {
-                    li {
-                      margin-bottom: 10px;
-                      .title {
-                        color: #04b4e0;
-                        margin-right: 5px;
-                        font-weight: 600;
-                      }
-                      .value {
-                        a {
-                          text-decoration: none;
-                          color: inherit;
-                        }
-                      }
-                    }
-                  }
-                }
-                .what-i-do {
-                  .what-i-do-icon {
-                    font-size: 42px;
-                    color: #04b4e0;
-                    margin-bottom: 10px;
-                  }
-                  .what-i-do-text {
-                    h4 {
-                      margin: 5px 0;
-                    }
-                  }
-                }
-                .timeline {
-                  .timeline-item {
-                    position: relative;
-                    display: table;
-                    table-layout: fixed;
-                    width: 100%;
-                    padding-bottom: 15px;
-                    .left-part,
-                    .right-part {
-                      display: table-cell;
-                      vertical-align: top;
-                    }
-                    .left-part {
-                      width: 30%;
-                      padding-right: 25px;
-                      min-height: 100%;
-                      text-align: right;
-                      .item-period {
-                        margin: 3px 0;
-                        font-size: 14px;
-                        line-height: 1.4em;
-                      }
-                      .item-company {
-                        display: block;
-                        margin: 0 0 4px;
-                        font-size: 13px;
-                        font-weight: 300;
-                        line-height: 1.45em;
-                        color: #a5a6a7;
-                        word-break: break-word;
-                      }
-                    }
-                    .divider {
-                      position: absolute;
-                      top: 0;
-                      left: 30%;
-                      bottom: 0;
-                      width: 1px;
-                      background-color: #eee;
-                      &:before,
-                      &:after {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                      }
-                      &:before {
-                        margin-top: 4px;
-                        width: 17px;
-                        height: 17px;
-                        margin-left: -8px;
-                        border-radius: 10px;
-                        background-color: #04b4e0;
-                        opacity: .25;
-                        z-index: 0;
-                      }
-                      &:after {
-                        margin-top: 8px;
-                        width: 9px;
-                        height: 9px;
-                        margin-left: -4px;
-                        background-color: #fff;
-                        border-radius: 5px;
-                        border: 2px solid #04b4e0;
-                        z-index: 1;
-                      }
-                    }
-                    .right-part {
-                      width: 70%;
-                      padding-left: 25px;
-                      padding-right: 15px;
-                    }
-                    .item-title {
-                      font-size: 16px;
-                      margin-bottom: 3px;
-                    }
-                  }
-                }
-                .skills {
-                  margin-bottom: 30px;
-                  .skill {
-                    h4 {
-                      font-size: 13px;
-                      line-height: 1.1em;
-                      position: relative;
-                      float: left;
-                      margin: 0 0 4px;
-                    }
-                    .skill-value {
-                      font-size: 11px;
-                      line-height: 1.1em;
-                      position: relative;
-                      float: right;
-                      margin: 0 0 4px;
-                      color: #aaa;
-                    }
-                  }
-                  .skill-container {
-                    position: relative;
-                    display: inline-block;
-                    background-color: #fff;
-                    border: 1px solid #04b4e0;
-                    -moz-border-radius: 8px;
-                    -webkit-border-radius: 8px;
-                    border-radius: 8px;
-                    -webkit-box-sizing: border-box;
-                    -moz-box-sizing: border-box;
-                    box-sizing: border-box;
-                    height: 10px;
-                    margin-bottom: 8px;
-                    width: 100%;
-                    &:before {
-                      content: '';
-                      position: absolute;
-                      background-color: #04b4e0;
-                    }
-                    .skill-percentage {
-                      background-color: #04b4e0;
-                      border: 2px solid #fff;
-                      -moz-border-radius: 9px;
-                      -webkit-border-radius: 9px;
-                      border-radius: 9px;
-                      height: 8px;
-                      padding: 0;
-                      width: 95%;
-                    }
-                  }
-                }
-                .knowledges {
+            .cv-details-section-content-left,
+            .cv-details-section-content-right {
+              flex: 0 0 50%;
+              .info-list {
+                ul {
                   li {
-                    display: inline-block;
-                    background-color: #04b4e0;
-                    border-radius: 3px;
-                    color: #fff;
-                    padding: 1px 10px;
-                    margin: 3px 2px;
-                    font-size: 13px;
+                    margin-bottom: 10px;
+                    .title {
+                      color: #04b4e0;
+                      margin-right: 5px;
+                      font-weight: 600;
+                    }
+                    .value {
+                      a {
+                        text-decoration: none;
+                        color: inherit;
+                      }
+                    }
                   }
                 }
               }
-              .cv-details-section-content-left {
-                padding-right: 10px;
+              .what-i-do {
+                .what-i-do-icon {
+                  font-size: 42px;
+                  color: #04b4e0;
+                  margin-bottom: 10px;
+                }
+                .what-i-do-text {
+                  h4 {
+                    margin: 5px 0;
+                  }
+                }
               }
-              .cv-details-section-content-right {
-                padding-left: 10px;
+              .timeline {
+                .timeline-item {
+                  position: relative;
+                  display: table;
+                  table-layout: fixed;
+                  width: 100%;
+                  padding-bottom: 15px;
+                  .left-part,
+                  .right-part {
+                    display: table-cell;
+                    vertical-align: top;
+                  }
+                  .left-part {
+                    width: 30%;
+                    padding-right: 25px;
+                    min-height: 100%;
+                    text-align: right;
+                    .item-period {
+                      margin: 3px 0;
+                      font-size: 14px;
+                      line-height: 1.4em;
+                    }
+                    .item-company {
+                      display: block;
+                      margin: 0 0 4px;
+                      font-size: 13px;
+                      font-weight: 300;
+                      line-height: 1.45em;
+                      color: #a5a6a7;
+                      word-break: break-word;
+                    }
+                  }
+                  .divider {
+                    position: absolute;
+                    top: 0;
+                    left: 30%;
+                    bottom: 0;
+                    width: 1px;
+                    background-color: #eee;
+                    &:before,
+                    &:after {
+                      content: '';
+                      display: block;
+                      position: absolute;
+                    }
+                    &:before {
+                      margin-top: 4px;
+                      width: 17px;
+                      height: 17px;
+                      margin-left: -8px;
+                      border-radius: 10px;
+                      background-color: #04b4e0;
+                      opacity: .25;
+                      z-index: 0;
+                    }
+                    &:after {
+                      margin-top: 8px;
+                      width: 9px;
+                      height: 9px;
+                      margin-left: -4px;
+                      background-color: #fff;
+                      border-radius: 5px;
+                      border: 2px solid #04b4e0;
+                      z-index: 1;
+                    }
+                  }
+                  .right-part {
+                    width: 70%;
+                    padding-left: 25px;
+                    padding-right: 15px;
+                  }
+                  .item-title {
+                    font-size: 16px;
+                    margin-bottom: 3px;
+                  }
+                }
+              }
+              .skills {
+                margin-bottom: 30px;
+                .skill {
+                  h4 {
+                    font-size: 13px;
+                    line-height: 1.1em;
+                    position: relative;
+                    float: left;
+                    margin: 0 0 4px;
+                  }
+                  .skill-value {
+                    font-size: 11px;
+                    line-height: 1.1em;
+                    position: relative;
+                    float: right;
+                    margin: 0 0 4px;
+                    color: #aaa;
+                  }
+                }
+                .skill-container {
+                  position: relative;
+                  display: inline-block;
+                  background-color: #fff;
+                  border: 1px solid #04b4e0;
+                  -moz-border-radius: 8px;
+                  -webkit-border-radius: 8px;
+                  border-radius: 8px;
+                  -webkit-box-sizing: border-box;
+                  -moz-box-sizing: border-box;
+                  box-sizing: border-box;
+                  height: 10px;
+                  margin-bottom: 8px;
+                  width: 100%;
+                  &:before {
+                    content: '';
+                    position: absolute;
+                    background-color: #04b4e0;
+                  }
+                  .skill-percentage {
+                    background-color: #04b4e0;
+                    border: 2px solid #fff;
+                    -moz-border-radius: 9px;
+                    -webkit-border-radius: 9px;
+                    border-radius: 9px;
+                    height: 8px;
+                    padding: 0;
+                    width: 95%;
+                  }
+                }
+              }
+              .knowledges {
+                li {
+                  display: inline-block;
+                  background-color: #04b4e0;
+                  border-radius: 3px;
+                  color: #fff;
+                  padding: 1px 10px;
+                  margin: 3px 2px;
+                  font-size: 13px;
+                }
+              }
+            }
+            .cv-details-section-content-left {
+              padding-right: 10px;
+            }
+            .cv-details-section-content-right {
+              padding-left: 10px;
+            }
+            .portfolio-item {
+              cursor: pointer;
+              flex: 0 0 33.33%;
+              padding: 10px;
+              &:hover {
+                .portfolio-item-img {
+                  img {
+                    transform: scale(1.1);
+                  }
+                }
+              }
+              .portfolio-item-img {
+                overflow: hidden;
+                img {
+                  width: 100%;
+                  transition: all 0.3s ease-out;
+                }
               }
             }
           }
