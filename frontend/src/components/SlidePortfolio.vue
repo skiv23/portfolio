@@ -1,5 +1,5 @@
 <template>
-  <section class="cv-details-section curriculum-vitae">
+  <section class="cv-details-section portfolio">
     <div class="page-title">
       <h2>Portfolio</h2>
     </div>

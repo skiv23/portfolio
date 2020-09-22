@@ -28,6 +28,13 @@
         </a>
       </li>
     </router-link>
+    <router-link :to="{ name: 'contact' }" v-slot="{ href, route, navigate, isActive, isExactActive }">
+      <li>
+        <a :class="{ active: isExactActive }" :href="href" @click="navigate">
+          <font-awesome-icon icon="envelope"/>
+        </a>
+      </li>
+    </router-link>
   </ul>
 </template>
 
