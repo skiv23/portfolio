@@ -1,0 +1,45 @@
+[data-theme] {
+  --blue-color: #04b4e0;
+}
+
+[data-theme=light] {
+  --default_bg_color: var(--blue-color);
+  --body_bg_color: #f2f7f9;
+  --menu_bg_color: #fff;
+  --section_bg_color: #fff;
+  --title_primary_color: #2c3e50;
+  --title_secondary_color: #888;
+  --cv_title_primary_color: #fff;
+  --cv_title_secondary_color: #fff;
+  --text_primary_color: #2c3e50;
+  --modal_description_color: #fcfcfc;
+  --modal_nav_color: #eee;
+  --modal_tag_color: #666;
+  --modal_tag_bg_color: #fff;
+  --modal_tag_border_color: #e5e5e5;
+  --button_bg_color: transparent;
+  --button_border_color: var(--blue-color);
+  --button_color: #000;
+  --button_bg_color_hover: var(--blue-color);
+}
+
+[data-theme=dark] {
+  --default_bg_color: #444;
+  --body_bg_color: var(--blue-color);
+  --menu_bg_color: #444;
+  --section_bg_color: #222;
+  --title_primary_color: #f5f5f5;
+  --title_secondary_color: #aaa;
+  --cv_title_primary_color: #fff;
+  --cv_title_secondary_color: #bbb;
+  --text_primary_color: #d5d5d5;
+  --modal_description_color: #333;
+  --modal_nav_color: #444;
+  --modal_tag_color: #fff;
+  --modal_tag_bg_color: #444;
+  --modal_tag_border_color: #444;
+  --button_bg_color: #444;
+  --button_border_color: #fff;
+  --button_color: #fff;
+  --button_bg_color_hover: #444;
+}

@@ -37,7 +37,7 @@ html {
 }
 
 body {
-  background-color: #f2f7f9;
+  background-color: var(--body_bg_color);
   margin: 0;
   width: 100%;
   height: 100%;

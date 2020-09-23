@@ -1,0 +1,33 @@
+.theme-switch {
+  width: 100px;
+  height: 20px;
+  position: relative;
+  background-color: var(--default_bg_color);
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 2px solid white;
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, .22);
+  cursor: pointer;
+  .switch {
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -7px;
+    background-color: var(--default_bg_color);
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: all 0.3s ease-in;
+    &.dark {
+      right: -2%;
+    }
+    &.light {
+      right: 71%;
+    }
+    svg {
+      font-size: 16px;
+      position: relative;
+      top: 2px;
+    }
+  }
+}

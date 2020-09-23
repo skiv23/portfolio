@@ -1,6 +1,6 @@
 .page-ajax-loaded {
   position: fixed;
-  background-color: #fff;
+  background-color: var(--section_bg_color);
   padding: 0;
   top: 0;
   bottom: 0;
@@ -11,7 +11,7 @@
   .ajax-page-content {
     height: 100%;
     overflow: auto;
-    background-color: #fff;
+    background-color: var(--section_bg_color);
     .ajax-page-wrapper {
       max-width: 1170px;
       margin: 0 auto;
@@ -22,9 +22,9 @@
           position: relative;
           display: inline-block;
           margin: 0 3px;
-          background-color: #eee;
+          background-color: var(--modal_nav_color);
           &:hover {
-            background-color: #04b4e0;
+            background-color: var(--blue-color);
             #ajax-page-close-button {
               color: #fff;
             }
@@ -60,11 +60,11 @@
           display: block;
           position: relative;
           padding: 20px 25px 25px;
-          background-color: #fcfcfc;
+          background-color: var(--modal_description_color);
           .project-general-info li {
             margin: 0 0 10px;
             svg {
-              color: #04b4e0;
+              color: var(--blue-color);
               margin-right: 5px;
             }
           }
@@ -77,11 +77,11 @@
                   display: inline-block;
                   font-size: 12px;
                   line-height: 1.5em;
-                  color: #666;
+                  color: var(--modal_tag_color);
                   padding: 2px 7px;
-                  background-color: #fff;
+                  background-color: var(--modal_tag_bg_color);
                   border-radius: 3px;
-                  border: 1px solid #e5e5e5;
+                  border: 1px solid var(--modal_tag_border_color);
                   margin: 3px 2px 2px;
                 }
               }
@@ -95,8 +95,10 @@
                 display: none;
               }
               &:hover {
+                background-color: var(--blue-color);
+                border-color: var(--blue-color);
                 svg polyline {
-                  stroke: #04b4e0;
+                  stroke: var(--blue-color);
                 }
               }
             }

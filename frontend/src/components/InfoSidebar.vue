@@ -26,12 +26,20 @@
         </li>
       </ul>
     </div>
+    <div class="cv-header-buttons">
+      <a href="#" target="_blank" class="btn btn-primary">Download CV</a>
+      <theme-switch></theme-switch>
+    </div>
   </div>
 </template>
 
 <script>
+  import ThemeSwitch from './ThemeSwitch.vue'
   export default {
-    name: "InfoSidebar"
+    name: "InfoSidebar",
+    components: {
+      ThemeSwitch
+    }
   }
 </script>
 

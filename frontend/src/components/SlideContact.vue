@@ -166,7 +166,6 @@
       },
       checkField(field) {
         field.errors = []
-        console.log(field.type === 'email', field.value, this.emailIsValid(field.value))
         if (field.value === '') {
           field.errors.push(`${field.name} is required.`)
         } else if (field.type === 'email' && !this.emailIsValid(field.value)) {

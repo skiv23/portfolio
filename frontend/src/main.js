@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faUser, faEnvelope, faPaperPlane, faCogs, faLaptopCode, faGraduationCap, faBriefcase, faGlobe,
-  faCalendar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+  faCalendar, faMapMarkerAlt, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -16,7 +16,7 @@ import SlideContact from './components/SlideContact.vue'
 Vue.use(VueRouter)
 
 library.add(faLinkedinIn, faHome, faUser, faEnvelope, faPaperPlane, faCogs, faLaptopCode, faGraduationCap, faBriefcase,
-  faGlobe, faCalendar, faMapMarkerAlt)
+  faGlobe, faCalendar, faMapMarkerAlt, faSun, faMoon)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
