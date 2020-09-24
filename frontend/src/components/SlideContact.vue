@@ -8,31 +8,12 @@
 
       <div class="row">
         <div class="cv-details-section-content-left">
-          <div class="lm-info-block gray-default">
-            <font-awesome-icon icon="map-marker-alt"/>
-            <h4>Belarus, Minsk</h4>
-            <span class="lm-info-block-value"></span>
-            <span class="lm-info-block-text"></span>
-          </div>
-
-          <div class="lm-info-block gray-default">
-            <a href="mailto:sergey.bondar.dev@gmail.com">
-              <font-awesome-icon icon="envelope"/>
-              <h4>
-                sergey.bondar.dev@gmail.com
-              </h4>
+          <div class="lm-info-block gray-default" v-for="contact in contacts" :key="contact.id">
+            <font-awesome-icon :icon="JSON.parse(contact.icon)"/>
+            <a v-if="contact.url" :href="contact.url">
+              <h4>{{ contact.text }}</h4>
             </a>
-            <span class="lm-info-block-value"></span>
-            <span class="lm-info-block-text"></span>
-          </div>
-
-          <div class="lm-info-block gray-default">
-            <a href="https://telegram.me/sbondar_tg">
-              <font-awesome-icon icon="paper-plane"/>
-              <h4>
-                sbondar_tg
-              </h4>
-            </a>
+            <h4 v-else>{{ contact.text }}</h4>
             <span class="lm-info-block-value"></span>
             <span class="lm-info-block-text"></span>
           </div>
@@ -122,11 +103,13 @@
 </template>
 
 <script>
+  import ContactDataService from '../services/ContactDataService'
 
   export default {
     name: "Contact",
     data() {
       return {
+        contacts: [],
         form: {
           fullName: {
             name: 'Full Name',
@@ -158,6 +141,12 @@
           }
         }
       }
+    },
+    mounted() {
+      ContactDataService.filterByComponent('contact')
+        .then(response => {
+          this.contacts = response.data;
+        })
     },
     methods: {
       emailIsValid: function (email) {

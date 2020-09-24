@@ -4,24 +4,14 @@
       <img src="../assets/photo.png" alt="photo">
     </div>
     <div class="cv-titles">
-      <h2>Sergey Bondar</h2>
-      <h4>Web developer</h4>
+      <h2>{{ nameTitle }}</h2>
+      <h4>{{ roleTitle }}</h4>
     </div>
     <div class="cv-social-links">
       <ul>
-        <li>
-          <a href="https://linkedin.com/in/sergey-bondar-47960690" target="_blank">
-            <font-awesome-icon :icon="['fab', 'linkedin-in']"/>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:sergey.bondar.dev@gmail.com">
-            <font-awesome-icon icon="envelope"/>
-          </a>
-        </li>
-        <li>
-          <a href="https://telegram.me/sbondar_tg">
-            <font-awesome-icon icon="paper-plane"/>
+        <li v-for="contact in contacts" :key="contact.id">
+          <a v-if="contact.url" :href="contact.url" target="_blank">
+            <font-awesome-icon :icon="JSON.parse(contact.icon)"/>
           </a>
         </li>
       </ul>
@@ -35,10 +25,36 @@
 
 <script>
   import ThemeSwitch from './ThemeSwitch.vue'
+  import TitleDataService from '../services/TitleDataService'
+  import ContactDataService from '../services/ContactDataService'
+
   export default {
     name: "InfoSidebar",
+    data() {
+      return {
+        nameTitle: '',
+        roleTitle: '',
+        contacts: []
+      }
+    },
     components: {
       ThemeSwitch
+    },
+    mounted() {
+      TitleDataService.getAll()
+        .then(response => {
+          response.data.forEach((title) => {
+            if (title.type === 1) {
+              this.nameTitle = title.text
+            } else if (title.type === 2) {
+              this.roleTitle = title.text
+            }
+          })
+        })
+      ContactDataService.filterByComponent('sidebar')
+        .then(response => {
+          this.contacts = response.data;
+        })
     }
   }
 </script>
