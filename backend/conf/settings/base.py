@@ -44,7 +44,8 @@ CORE_APPS = [
 ]
 
 LOCAL_APPS = [
-    'apps.contact'
+    'apps.about',
+    'apps.contact',
 ]
 
 THIRD_PARTY_APPS = [

@@ -6,42 +6,15 @@
     <div class="cv-details-section-content">
       <div class="row">
         <div class="cv-details-section-content-left">
-          <p>Proin volutpat mauris ac pellentesque pharetra. Suspendisse congue elit vel odio suscipit, sit amet tempor
-            nisl imperdiet. Quisque ex justo, faucibus ut mi in, condimentum finibus dolor. Aliquam vitae hendrerit
-            dolor, eget imperdiet mauris. Maecenas et ante id ipsum condimentum dictum et vel massa. Ut in imperdiet
-            dolor, vel consectetur dui.</p>
+          <p>{{ about.description }}</p>
         </div>
 
         <div class="cv-details-section-content-right">
           <div class="info-list">
             <ul>
-              <li>
-                <span class="title">Age</span>
-                <span class="value">{{ new Date().getFullYear() - 1994 }}</span>
-              </li>
-
-              <li>
-                <span class="title">Residence</span>
-                <span class="value">Belarus</span>
-              </li>
-
-              <li>
-                <span class="title">City</span>
-                <span class="value">Minsk</span>
-              </li>
-
-              <li>
-                <span class="title">Email</span>
-                <span class="value">
-                  <a href="mailto:sergey.bondar.dev@gmail.com">sergey.bondar.dev@gmail.com</a>
-                </span>
-              </li>
-
-              <li>
-                <span class="title">Telegram</span>
-                <span class="value">
-                  <a href="https://telegram.me/sbondar_tg">sbondar_tg</a>
-                </span>
+              <li v-for="infoEntry in about.info_entries" :key="infoEntry.id">
+                <span class="title">{{ infoEntry.title }}</span>
+                <span class="value" v-html="infoEntry.value_display"></span>
               </li>
             </ul>
           </div>
@@ -59,40 +32,45 @@
       </div>
 
       <div class="row">
-        <div class="cv-details-section-content-left">
+        <div :class="[index % 2 === 0 ? 'cv-details-section-content-left': 'cv-details-section-content-right']"
+             v-for="(whatIDo, index) in whatIDoList" :key="whatIDo.id">
           <div class="what-i-do">
-            <div class="what-i-do-icon">
-              <font-awesome-icon icon="cogs"/>
+            <div class="what-i-do-icon" v-if="whatIDo.icon">
+              <font-awesome-icon :icon="whatIDo.icon"/>
             </div>
             <div class="what-i-do-text">
-              <h4>Backend</h4>
-              <p>Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet
-                ultricies ex lectus scelerisque nibh. Ut non sodales.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cv-details-section-content-right">
-          <div class="what-i-do">
-            <div class="what-i-do-icon">
-              <font-awesome-icon icon="laptop-code"/>
-            </div>
-            <div class="what-i-do-text">
-              <h4>Frontend</h4>
-              <p>Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet
-                ultricies ex lectus scelerisque nibh. Ut non sodales.</p>
+              <h4>{{ whatIDo.name }}</h4>
+              <p>{{ whatIDo.description }}</p>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </template>
 
 <script>
+  import AboutDataService from '../services/AboutDataService'
+  import WhatIDoDataService from '../services/WhatIDoDataService'
+
   export default {
-    name: "About"
+    name: "About",
+    data() {
+      return {
+        about: {},
+        whatIDoList: []
+      }
+    },
+    mounted() {
+      AboutDataService.get()
+        .then(response => {
+          this.about = response.data
+        })
+      WhatIDoDataService.getAll()
+        .then(response => {
+          this.whatIDoList = response.data
+        })
+    }
   }
 </script>
 

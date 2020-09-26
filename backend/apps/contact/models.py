@@ -2,10 +2,11 @@
 import json
 
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 class BaseContactModel(models.Model):
-    text = models.CharField(max_length=64)
+    text = models.CharField(max_length=64, verbose_name=_('Text'))
 
     class Meta:
         abstract = True
@@ -19,11 +20,11 @@ class Title(BaseContactModel):
     ROLE = 2
     TECH_STACK = 3
     TYPES = (
-        (NAME, 'Name'),
-        (ROLE, 'Role'),
-        (TECH_STACK, 'Tech Stack'),
+        (NAME, _('Name')),
+        (ROLE, _('Role')),
+        (TECH_STACK, _('Tech Stack')),
     )
-    type = models.PositiveSmallIntegerField(unique=True, choices=TYPES)
+    type = models.PositiveSmallIntegerField(unique=True, choices=TYPES, verbose_name=_('Type'))
 
 
 class Contact(BaseContactModel):
@@ -32,16 +33,16 @@ class Contact(BaseContactModel):
     MAIL = 3
     TELEGRAM = 4
     TYPES = (
-        (LOCATION, 'Location'),
-        (LINKEDIN, 'LinkedIn'),
-        (MAIL, 'Mail'),
-        (TELEGRAM, 'Telegram'),
+        (LOCATION, _('Location')),
+        (LINKEDIN, _('LinkedIn')),
+        (MAIL, _('Mail')),
+        (TELEGRAM, _('Telegram')),
     )
-    type = models.PositiveSmallIntegerField(unique=True, choices=TYPES)
-    url = models.CharField(max_length=64, blank=True)
+    type = models.PositiveSmallIntegerField(unique=True, choices=TYPES, verbose_name=_('Type'))
+    url = models.CharField(max_length=64, blank=True, verbose_name=_('URL'))
 
-    show_in_sidebar = models.BooleanField(default=False)
-    show_in_contact = models.BooleanField(default=False)
+    show_in_sidebar = models.BooleanField(default=False, verbose_name=_('Show in Sidebar'))
+    show_in_contact = models.BooleanField(default=False, verbose_name=_('Show in Contact'))
 
     @property
     def icon(self):
