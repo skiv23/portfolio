@@ -5,74 +5,22 @@
     </div>
     <div class="cv-details-section-content">
       <div class="row row-wrap">
-        <div class="portfolio-item" @click="openModal()">
+        <div class="portfolio-item" @click="openModal(project.id)" v-for="project in projects" :key="project.id">
           <div class="portfolio-item-img">
-            <img src="../assets/1.jpg" alt="SoundCloud Audio" title="">
-            <a
-              href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
-              class="lightbox mfp-iframe" title="SoundCloud Audio"></a>
+            <img :src="project.primary_image_url" :alt="project.name" :title="project.name">
           </div>
 
-          <h4 class="name">SoundCloud Audio</h4>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-item-img">
-            <img src="../assets/1.jpg" alt="SoundCloud Audio" title="">
-            <a
-              href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
-              class="lightbox mfp-iframe" title="SoundCloud Audio"></a>
-          </div>
-
-          <h4 class="name">SoundCloud Audio</h4>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-item-img">
-            <img src="../assets/1.jpg" alt="SoundCloud Audio" title="">
-            <a
-              href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
-              class="lightbox mfp-iframe" title="SoundCloud Audio"></a>
-          </div>
-
-          <h4 class="name">SoundCloud Audio</h4>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-item-img">
-            <img src="../assets/1.jpg" alt="SoundCloud Audio" title="">
-            <a
-              href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
-              class="lightbox mfp-iframe" title="SoundCloud Audio"></a>
-          </div>
-
-          <h4 class="name">SoundCloud Audio</h4>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-item-img">
-            <img src="../assets/1.jpg" alt="SoundCloud Audio" title="">
-            <a
-              href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
-              class="lightbox mfp-iframe" title="SoundCloud Audio"></a>
-          </div>
-
-          <h4 class="name">SoundCloud Audio</h4>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-item-img">
-            <img src="../assets/1.jpg" alt="SoundCloud Audio" title="">
-            <a
-              href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
-              class="lightbox mfp-iframe" title="SoundCloud Audio"></a>
-          </div>
-
-          <h4 class="name">SoundCloud Audio</h4>
+          <h4 class="name">{{ project.name }}</h4>
         </div>
       </div>
     </div>
-    <portfolio-modal v-if="isModalOpen" @close="closeModal()"></portfolio-modal>
+    <portfolio-modal v-if="isModalOpen" :project="modalProject" @close="closeModal()"></portfolio-modal>
   </section>
 </template>
 
 <script>
   import PortfolioModal from './PortfolioModal.vue';
+  import ProjectDataService from '../services/ProjectDataService';
   export default {
     name: "Portfolio",
     components: {
@@ -80,16 +28,29 @@
     },
     data() {
       return {
-        isModalOpen: false
+        isModalOpen: false,
+        projects: [],
+        modalProject: null
       }
     },
     methods: {
-      openModal() {
-        this.isModalOpen = true
+      openModal(id) {
+        ProjectDataService.get(id)
+          .then(response => {
+            this.modalProject = response.data
+            this.isModalOpen = true
+          })
       },
       closeModal() {
+        this.modalProject = null
         this.isModalOpen = false
       }
+    },
+    mounted() {
+      ProjectDataService.getAll()
+        .then(response => {
+          this.projects = response.data
+        })
     }
   }
 </script>

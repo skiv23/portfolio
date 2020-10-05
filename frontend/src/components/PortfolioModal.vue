@@ -9,14 +9,14 @@
         </div>
 
         <div class="ajax-page-title">
-          <h1>Portfolio Project 1</h1>
+          <h1>{{ project.name }}</h1>
         </div>
 
         <div class="row">
           <div class="portfolio-block portfolio-block-left">
             <vue-flux
               :options="vfOptions"
-              :images="vfImages"
+              :images="project.images"
               :transitions="vfTransitions"
               ref="slider"
             >
@@ -32,23 +32,20 @@
                 <h3>Description</h3>
               </div>
               <ul class="project-general-info">
-                <li><p><font-awesome-icon icon="user"/> Alex Smith</p></li>
-                <li><p><font-awesome-icon icon="globe"/> <a href="#" target="_blank">www.project-site.com</a></p></li>
-                <li><p><font-awesome-icon icon="calendar"/> 25 december, 2016</p></li>
+                <li v-if="project.url">
+                  <p>
+                    <font-awesome-icon icon="globe"/> <a :href="project.url" target="_blank">{{ project.url }}</a>
+                  </p>
+                </li>
               </ul>
 
-              <p class="text-justify">Aliquam euismod aliquam massa, quis eleifend dui sodales vitae. Interdum et
-                malesuada fames ac ante ipsum primis in faucibus.</p>
+              <p class="text-justify">{{ project.description }}</p>
               <div class="tags-block">
                 <div class="block-title">
                   <h3>Technology</h3>
                 </div>
-                <ul class="tags">
-                  <li><a>HTML5</a></li>
-                  <li><a>CSS3</a></li>
-                  <li><a>jQuery</a></li>
-                  <li><a>Ajax</a></li>
-                  <li><a>PHP5</a></li>
+                <ul class="tags" >
+                  <li v-for="tag in project.tags" :key="tag.id"><a>{{ tag.name }}</a></li>
                 </ul>
               </div>
 
@@ -87,6 +84,9 @@
           }
         }],
       }
+    },
+    props: {
+      project: Object
     }
   }
 </script>
