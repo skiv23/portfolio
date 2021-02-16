@@ -37,3 +37,25 @@ class WhatIDoSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.WhatIDo
         fields = '__all__'
+
+
+class SkillSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Skill
+        fields = '__all__'
+
+
+class TimelineEntrySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.TimelineEntry
+        fields = '__all__'
+
+
+class TimelineSerializer(serializers.ModelSerializer):
+    entries = TimelineEntrySerializer(many=True)
+
+    class Meta:
+        model = models.Timeline
+        fields = '__all__'

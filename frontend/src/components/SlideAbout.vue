@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row row-wrap">
         <div :class="[index % 2 === 0 ? 'cv-details-section-content-left': 'cv-details-section-content-right']"
              v-for="(whatIDo, index) in whatIDoList" :key="whatIDo.id">
           <div class="what-i-do">

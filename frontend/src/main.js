@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faUser, faEnvelope, faPaperPlane, faCogs, faLaptopCode, faGraduationCap, faBriefcase, faGlobe,
-  faCalendar, faMapMarkerAlt, faSun, faMoon, faQuestion } from '@fortawesome/free-solid-svg-icons'
+  faCalendar, faMapMarkerAlt, faSun, faMoon, faQuestion, faTerminal } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -20,7 +20,7 @@ Vue.prototype.$http = HTTP;
 Vue.use(VueRouter)
 
 library.add(faLinkedinIn, faHome, faUser, faEnvelope, faPaperPlane, faCogs, faLaptopCode, faGraduationCap, faBriefcase,
-  faGlobe, faCalendar, faMapMarkerAlt, faSun, faMoon, faQuestion)
+  faGlobe, faCalendar, faMapMarkerAlt, faSun, faMoon, faQuestion, faTerminal)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

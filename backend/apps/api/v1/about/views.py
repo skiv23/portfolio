@@ -28,3 +28,13 @@ class AboutInfoViewSet(viewsets.ModelViewSet):
 class WhatIDoViewSet(viewsets.ModelViewSet):
     queryset = models.WhatIDo.objects.all()
     serializer_class = serializers.WhatIDoSerializer
+
+
+class SkillViewSet(viewsets.ModelViewSet):
+    queryset = models.Skill.objects.all()
+    serializer_class = serializers.SkillSerializer
+
+
+class TimelineViewSet(viewsets.ModelViewSet):
+    queryset = models.Timeline.objects.all()
+    serializer_class = serializers.TimelineSerializer
