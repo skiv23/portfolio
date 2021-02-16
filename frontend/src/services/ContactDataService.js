@@ -26,6 +26,10 @@ class ContactDataService {
   filterByComponent(component) {
     return http.get(`${baseURL}?component=${component}`);
   }
+
+  createContactMe(data) {
+    return http.post(baseURL + 'me/', data);
+  }
 }
 
 export default new ContactDataService();

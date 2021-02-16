@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins, decorators, response
 
 from apps.contact import models
 
@@ -34,3 +34,10 @@ class ContactViewSet(ContactViewSetMixin, viewsets.ModelViewSet):
             qs = qs.filter(**{f'show_in_{component}': True})
 
         return qs
+
+    @decorators.action(methods=['POST'], detail=False, url_path='me')
+    def contact_me(self, request):
+        serializer = serializers.ContactMeEntrySerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return response.Response(data=serializer.data)

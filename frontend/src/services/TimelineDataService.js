@@ -2,7 +2,7 @@ import http from '../../http-common'
 
 const baseURL = '/about/timelines/'
 
-class SkillDataService {
+class TimelineDataService {
   getAll() {
     return http.get(baseURL);
   }
@@ -21,4 +21,4 @@ class SkillDataService {
 
 }
 
-export default new SkillDataService();
+export default new TimelineDataService();

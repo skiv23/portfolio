@@ -17,3 +17,10 @@ class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Contact
         fields = '__all__'
+
+
+class ContactMeEntrySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.ContactMeEntry
+        fields = '__all__'

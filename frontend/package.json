@@ -16,7 +16,8 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-flux": "^6.3.0",
-    "vue-router": "^3.4.3"
+    "vue-router": "^3.4.3",
+    "vue-sweetalert2": "^4.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

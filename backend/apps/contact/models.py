@@ -57,3 +57,20 @@ class Contact(BaseContactModel):
         ordering = ['type']
 
 
+class ContactMeEntry(models.Model):
+    full_name = models.CharField(max_length=128, verbose_name=_('Full name'))
+    email = models.EmailField(verbose_name=_('Email'))
+    subject = models.CharField(max_length=128, verbose_name=_('Subject'))
+    message = models.TextField(verbose_name=_('Message'))
+
+    class Meta:
+        verbose_name_plural = _('Contact me entries')
+        ordering = ['id']
+
+    def __str__(self):
+        return f'{self.subject} from {self.full_name}'
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            pass  # TODO: send message to Telegram
+        super().save(*args, **kwargs)
