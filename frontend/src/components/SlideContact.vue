@@ -77,21 +77,14 @@
                   </div>
                 </div>
               </div>
-
-<!--              <div class="g-recaptcha" data-sitekey="6LdqmCAUAAAAAMMNEZvn6g4W5e0or2sZmAVpxVqI">-->
-<!--                <div style="width: 304px; height: 78px;">-->
-<!--                  <div>-->
-<!--                    <iframe-->
-<!--                      src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdqmCAUAAAAAMMNEZvn6g4W5e0or2sZmAVpxVqI&amp;co=aHR0cHM6Ly9sbXBpeGVscy5jb206NDQz&amp;hl=en&amp;v=6TWYOsKNtRFaLeFqv5xN42-l&amp;size=normal&amp;cb=fyv45cyj3z7c"-->
-<!--                      width="304" height="78" role="presentation" name="a-fqarljb6vcbq" frameborder="0" scrolling="no"-->
-<!--                      sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>-->
-<!--                  </div>-->
-<!--                  <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"-->
-<!--                            style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>-->
-<!--                </div>-->
-<!--                <iframe style="display: none;"></iframe>-->
-<!--              </div>-->
-
+              <vue-recaptcha
+                ref="recaptcha"
+                size="invisible"
+                :sitekey="recaptchaSiteKey"
+                :loadRecaptchaScript="true"
+                @verify="sendMessage"
+                @expired="onCaptchaExpired"
+              />
               <input type="submit" class="button btn-send disabled" value="Send message">
             </div>
           </form>
@@ -104,13 +97,16 @@
 
 <script>
   import ContactDataService from '../services/ContactDataService'
+  import VueRecaptcha from 'vue-recaptcha'
 
   export default {
     name: "Contact",
+    components: { VueRecaptcha },
     data() {
       return {
         contacts: [],
-        form: {}
+        form: {},
+        recaptchaSiteKey: process.env.VUE_APP_RECAPTCHA_SITE_KEY
       }
     },
     created() {
@@ -184,27 +180,34 @@
           this.checkField(this.form.fields[key], key)
         }
         if (!this.form.hasErrors) {
-          ContactDataService.createContactMe(this.form.data)
-            .then(response => {
-              if (response.status == 200) {
-                this.resetForm();
-                this.$swal({
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 3000,
-                  icon: 'success',
-                  text: 'Thank you!',
-                });
-              }
-            })
-            .catch(error => {
-              const errors = error.response.data
-              for (let key in errors) {
-                this.form.fields[key].errors = errors[key]
-              }
-            })
+          this.$refs.recaptcha.execute();
         }
+      },
+      sendMessage(recaptchaToken) {
+        this.form.data.recaptcha_token = recaptchaToken
+        ContactDataService.createContactMe(this.form.data)
+          .then(response => {
+            if (response.status == 200) {
+              this.resetForm();
+              this.$swal({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                icon: 'success',
+                text: 'Thank you!',
+              });
+            }
+          })
+          .catch(error => {
+            const errors = error.response.data
+            for (let key in errors) {
+              this.form.fields[key].errors = errors[key]
+            }
+          })
+      },
+      onCaptchaExpired() {
+        this.$refs.recaptcha.reset()
       }
     }
   }
