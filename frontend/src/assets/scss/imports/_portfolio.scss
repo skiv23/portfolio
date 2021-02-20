@@ -4,6 +4,53 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text_primary_color);
+  .menu-toggle {
+    display: none;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    background-color: var(--blue-color);
+    &:hover {
+      cursor: pointer;
+    }
+    span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 50%;
+      background: #fff;
+      border-radius: 5px;
+      opacity: 1;
+      left: 25%;
+      &:nth-child(1) {
+        top: 16px;
+      }
+      &:nth-child(2) {
+        top: 22px;
+      }
+      &:nth-child(3) {
+        top: 28px;
+      }
+    }
+    &.open {
+      span {
+        top: 22px;
+          &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          transform: rotate(135deg);
+        }
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+    }
+  }
   .menu {
     position: absolute;
     padding: 15px 0;
@@ -166,6 +213,9 @@
             border-color: #fff;
           }
         }
+      }
+      .cv-mobile-menu {
+        display: none;
       }
     }
     .cv-right {
@@ -529,6 +579,140 @@
             color: var(--title_primary_color)
           }
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #app {
+    .cv {
+      .cv-right {
+        .cv-right-container {
+          .cv-details-section {
+            .cv-details-section-content {
+              .cv-details-section-content-right {
+                padding-left: 0;
+              }
+
+              .cv-details-section-content-left {
+                padding-right: 0;
+              }
+
+              .cv-details-section-content-right,
+              .cv-details-section-content-left {
+                margin-bottom: 20px;
+              }
+            }
+            &.contact {
+              .cv-details-section-content {
+                .row {
+                  .cv-details-section-content-left,
+                  .cv-details-section-content-right {
+                    max-width: 100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #app {
+    padding: 0;
+    height: 100%;
+    .arrows-nav {
+      width: 50px;
+      right: 10px;
+      bottom: 10px;
+      border: 2px solid var(--blue-color);
+    }
+    .menu-toggle {
+      display: block;
+    }
+    .cv {
+      height: 100%;
+      margin: 0;
+      > .menu {
+        display: none;
+      }
+      .cv-left {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        max-height: 100%;
+        max-width: 330px;
+        padding: 30px 30px 10px;
+        z-index: 99;
+        background: var(--default_bg_color);
+        &.open {
+          display: block;
+        }
+        .cv-photo {
+          width: 130px;
+        }
+        .cv-mobile-menu {
+          display: block;
+          .menu {
+            position: unset;
+            background: unset;
+            box-shadow: unset;
+            width: auto;
+            li {
+              a {
+                font-size: 16px;
+                font-weight: 500;
+                color: #fff;
+                opacity: 0.7;
+                &:hover,
+                &.active {
+                  color: #fff;
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+      }
+      .cv-right {
+        border-radius: 0;
+        position: absolute;
+        width: 100%;
+        max-width: 100%;
+        .cv-right-container {
+          position: relative;
+          .cv-details-section {
+            border-radius: 0;
+            .title-block {
+              h2 {
+                font-size: 48px;
+              }
+              h4 {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+  #app {
+    padding-left: 30px;
+    .cv {
+      .cv-left {
+        max-width: 330px;
+      }
+      .cv-right {
+        max-width: calc(100% - 330px);
       }
     }
   }

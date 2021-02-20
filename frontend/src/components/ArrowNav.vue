@@ -1,10 +1,10 @@
 <template>
   <div class="arrows-nav">
-    <div class="arrow arrow-right" @click="nextScreen">
-      <i>&gt;</i>
-    </div>
     <div class="arrow arrow-left" @click="prevScreen">
       <i>&lt;</i>
+    </div>
+    <div class="arrow arrow-right" @click="nextScreen">
+      <i>&gt;</i>
     </div>
   </div>
 </template>

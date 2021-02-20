@@ -115,3 +115,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media only screen and (max-width: 1024px) {
+  .page-ajax-loaded {
+    .ajax-page-content {
+      .ajax-page-wrapper {
+        .portfolio-block {
+          &.portfolio-block-left,
+          &.portfolio-block-right {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

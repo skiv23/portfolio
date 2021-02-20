@@ -27,38 +27,6 @@
             </div>
             <div class="white-space-50" v-if="index != timelines.length - 1"></div>
           </div>
-
-          <div class="block-title">
-            <h3>Experience</h3>
-          </div>
-
-          <div class="timeline clearfix">
-            <div class="timeline-item clearfix">
-              <div class="left-part">
-                <h5 class="item-period">2013</h5>
-                <span class="item-company">Syberry</span>
-              </div>
-              <div class="divider"></div>
-              <div class="right-part">
-                <h4 class="item-title">Web developer</h4>
-                <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed
-                  mauris hendrerit, laoreet sem in, lobortis ante.</p>
-              </div>
-            </div>
-            <div class="timeline-item clearfix">
-              <div class="left-part">
-                <h5 class="item-period">2014 - Current</h5>
-                <span class="item-company">Milo Solutions</span>
-              </div>
-              <div class="divider"></div>
-              <div class="right-part">
-                <h4 class="item-title">Web developer</h4>
-                <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed
-                  mauris hendrerit, laoreet sem in, lobortis ante.</p>
-              </div>
-            </div>
-          </div>
-
         </div>
 
         <div class="cv-details-section-content-right">
