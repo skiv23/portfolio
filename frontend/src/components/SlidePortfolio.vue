@@ -5,12 +5,15 @@
     </div>
     <div class="cv-details-section-content">
       <div class="row row-wrap">
-        <div class="portfolio-item" @click="openModal(project.id)" v-for="project in projects" :key="project.id">
+        <div class="portfolio-item" @click="openModal(project)" v-for="project in projects" :key="project.id">
           <div class="portfolio-item-img">
             <img :src="project.primary_image_url" :alt="project.name" :title="project.name">
           </div>
 
           <h4 class="name">{{ project.name }}</h4>
+          <div class="portfolio-block" v-if="download">
+            <ProjectDescription :project="project"/>
+          </div>
         </div>
       </div>
     </div>
@@ -21,10 +24,13 @@
 <script>
   import PortfolioModal from './PortfolioModal.vue';
   import ProjectDataService from '../services/ProjectDataService';
+  import ProjectDescription from './ProjectDescription.vue';
+
   export default {
     name: "Portfolio",
     components: {
-      PortfolioModal
+      PortfolioModal,
+      ProjectDescription
     },
     data() {
       return {
@@ -33,13 +39,16 @@
         modalProject: null
       }
     },
+    props: {
+      download: {
+        type: Boolean,
+        default: false
+      }
+    },
     methods: {
-      openModal(id) {
-        ProjectDataService.get(id)
-          .then(response => {
-            this.modalProject = response.data
-            this.isModalOpen = true
-          })
+      openModal(project) {
+        this.modalProject = project
+        this.isModalOpen = true
       },
       closeModal() {
         this.modalProject = null

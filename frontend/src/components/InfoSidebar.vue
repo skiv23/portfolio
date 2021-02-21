@@ -26,7 +26,7 @@
         <MenuNav :use-icons="false"/>
       </div>
       <div class="cv-header-buttons">
-        <a href="#" target="_blank" class="btn btn-primary">Download CV</a>
+        <a href="/#/?download=true" target="_blank" class="btn btn-primary cv-download">Download CV</a>
         <theme-switch></theme-switch>
       </div>
     </div>

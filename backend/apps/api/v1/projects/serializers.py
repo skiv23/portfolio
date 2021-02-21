@@ -14,21 +14,14 @@ class ProjectTagSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ProjectSerializer(serializers.ModelSerializer):
+class ProjectSerializer(mixins.ImageSerializerMixin, serializers.ModelSerializer):
     images = fields.ImageListingField(many=True, read_only=True)
     tags = ProjectTagSerializer(many=True)
+    primary_image_url = serializers.SerializerMethodField()
+
+    def get_primary_image_url(self, obj):
+        return self.build_absolute_image_url(obj.primary_image.original.url)
 
     class Meta:
         model = models.Project
         fields = '__all__'
-
-
-class ProjectListSerializer(mixins.ImageSerializerMixin, serializers.ModelSerializer):
-    primary_image_url = serializers.SerializerMethodField()
-
-    class Meta:
-        model = models.Project
-        fields = ('id', 'name', 'primary_image_url',)
-
-    def get_primary_image_url(self, obj):
-        return self.build_absolute_image_url(obj.primary_image.original.url)

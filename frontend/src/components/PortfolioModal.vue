@@ -27,29 +27,7 @@
           </div>
 
           <div class="portfolio-block portfolio-block-right">
-            <div class="project-description">
-              <div class="block-title">
-                <h3>Description</h3>
-              </div>
-              <ul class="project-general-info">
-                <li v-if="project.url">
-                  <p>
-                    <font-awesome-icon icon="globe"/> <a :href="project.url" target="_blank">{{ project.url }}</a>
-                  </p>
-                </li>
-              </ul>
-
-              <p class="text-justify">{{ project.description }}</p>
-              <div class="tags-block">
-                <div class="block-title">
-                  <h3>Technology</h3>
-                </div>
-                <ul class="tags" >
-                  <li v-for="tag in project.tags" :key="tag.id"><a>{{ tag.name }}</a></li>
-                </ul>
-              </div>
-
-            </div>
+            <ProjectDescription :project="project"/>
           </div>
         </div>
       </div>
@@ -61,13 +39,15 @@
   import {
    VueFlux,
    FluxControls,
-} from 'vue-flux';
+  } from 'vue-flux';
+  import ProjectDescription from './ProjectDescription.vue';
 
   export default {
     name: "PortfolioModal",
     components: {
       VueFlux,
       FluxControls,
+      ProjectDescription
     },
     data() {
       return {

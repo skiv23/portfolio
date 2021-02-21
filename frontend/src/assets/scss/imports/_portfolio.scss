@@ -281,8 +281,6 @@
             vertical-align: middle;
             width: 100%;
             align-items: center;
-            display: flex;
-            display: -ms-flexbox;
             justify-content: center;
             height: 100%;
             display: -webkit-box;
@@ -584,6 +582,35 @@
   }
 }
 
+.download {
+  #app {
+    padding: 0;
+    .cv {
+      position: unset;
+      min-height: unset;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 0;
+      .cv-right {
+        position: unset;
+        max-width: unset;
+        .cv-right-container {
+          .cv-details-section {
+            position: unset;
+            border-radius: 0;
+            &.portfolio {
+              .cv-details-section-content {
+                .portfolio-item {
+                  flex: 0 0 50%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media only screen and (max-width: 576px) {
   #app {
     .cv {
@@ -657,6 +684,11 @@
         }
         .cv-photo {
           width: 130px;
+        }
+        .cv-header-buttons {
+          .cv-download {
+            display: none;
+          }
         }
         .cv-mobile-menu {
           display: block;

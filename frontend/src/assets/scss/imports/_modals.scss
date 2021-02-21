@@ -46,63 +46,77 @@
         padding-bottom: 30px;
         text-align: left;
       }
-      .portfolio-block {
-        padding-top: 30px;
-        &.portfolio-block-left {
-          flex: 0 0 66.66%;
-          max-width: 66.66%;
-        }
-        &.portfolio-block-right {
-          flex: 0 0 33.33%;
-          max-width: 33.33%;
-        }
-        .project-description {
-          display: block;
-          position: relative;
-          padding: 20px 25px 25px;
-          background-color: var(--modal_description_color);
-          .project-general-info li {
-            margin: 0 0 10px;
-            svg {
-              color: var(--blue-color);
-              margin-right: 5px;
-            }
+    }
+  }
+}
+
+.portfolio-block {
+  padding-top: 30px;
+  &.portfolio-block-left {
+    flex: 0 0 66.66%;
+    max-width: 66.66%;
+  }
+  &.portfolio-block-right {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+  .project-description {
+    display: block;
+    position: relative;
+    padding: 20px 25px 25px;
+    background-color: var(--modal_description_color);
+    .project-general-info li {
+      margin: 0 0 10px;
+      svg {
+        color: var(--blue-color);
+        margin-right: 5px;
+      }
+    }
+    .tags-block {
+      margin: 25px 0 0;
+      .tags {
+        li {
+          display: inline-block;
+          a {
+            display: inline-block;
+            font-size: 12px;
+            line-height: 1.5em;
+            color: var(--modal_tag_color);
+            padding: 2px 7px;
+            background-color: var(--modal_tag_bg_color);
+            border-radius: 3px;
+            border: 1px solid var(--modal_tag_border_color);
+            margin: 3px 2px 2px;
           }
-          .tags-block {
-            margin: 25px 0 0;
-            .tags {
-              li {
-                display: inline-block;
-                a {
-                  display: inline-block;
-                  font-size: 12px;
-                  line-height: 1.5em;
-                  color: var(--modal_tag_color);
-                  padding: 2px 7px;
-                  background-color: var(--modal_tag_bg_color);
-                  border-radius: 3px;
-                  border: 1px solid var(--modal_tag_border_color);
-                  margin: 3px 2px 2px;
-                }
-              }
-            }
+        }
+      }
+    }
+  }
+  .vue-flux {
+    .complements {
+      .flux-button {
+        &.play {
+          display: none;
+        }
+        &:hover {
+          background-color: var(--blue-color);
+          border-color: var(--blue-color);
+          svg polyline {
+            stroke: var(--blue-color);
           }
         }
-        .vue-flux {
-          .complements {
-            .flux-button {
-              &.play {
-                display: none;
-              }
-              &:hover {
-                background-color: var(--blue-color);
-                border-color: var(--blue-color);
-                svg polyline {
-                  stroke: var(--blue-color);
-                }
-              }
-            }
-          }
+      }
+    }
+  }
+}
+.download {
+  .portfolio-block {
+    padding-top: 10px;
+    .project-description {
+      padding: 0;
+      .block-title {
+        h3 {
+          font-size: 16px!important;
         }
       }
     }
