@@ -52,6 +52,7 @@ LOCAL_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'corsheaders',
+    'storages',
 ]
 
 INSTALLED_APPS = CORE_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -139,7 +140,16 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080'
 ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = ROOT_DIR / 'media'
+USE_S3 = env('USE_S3', default=False)
+if USE_S3:
+    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID', default='')
+    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY', default='')
+    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME', default='')
+    AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME', default='')
+    AWS_S3_SIGNATURE_VERSION = 's3v4'
+    DEFAULT_FILE_STORAGE = 'conf.storage_backends.MediaStorage'
+else:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = ROOT_DIR / 'media'
 
 RECAPTCHA_SECRET_KEY = env('RECAPTCHA_SECRET_KEY', default='')

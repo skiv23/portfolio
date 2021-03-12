@@ -5,3 +5,4 @@ djangorestframework==3.11.1
 django-cors-headers==3.5.0
 Pillow==7.2.0
 requests==2.25.1
+django-storages[boto3]==1.11.1
