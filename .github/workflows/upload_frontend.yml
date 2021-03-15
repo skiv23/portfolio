@@ -8,10 +8,12 @@ on:
 jobs:
   s3-upload:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
-      - run: cd frontend
       - name: Installing project dependencies
         run: npm install
       - name: Building the project
