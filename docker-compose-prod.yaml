@@ -21,15 +21,3 @@ services:
       - "8001:8001"
     depends_on:
       - db
-
-  frontend:
-    build:
-      context: .
-      dockerfile: docker/FrontendDockerfile
-    command: /code/docker/start_frontend_prod.sh
-    volumes:
-      - ./frontend:/code
-      - ./docker:/code/docker
-      - ~/.aws:/root/.aws
-    depends_on:
-      - backend
