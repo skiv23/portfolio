@@ -13,11 +13,11 @@ jobs:
       - uses: actions/setup-node@master
       - run: cd frontend
       - name: Installing project dependencies
-      - run: npm install
+        run: npm install
       - name: Building the project
-      - run: npm run build
+        run: npm run build
       - name: Uploading to s3
-      - run: npm run deploy
+        run: npm run deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
