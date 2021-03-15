@@ -73,7 +73,7 @@ ROOT_URLCONF = 'conf.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ROOT_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -142,12 +142,11 @@ CORS_ALLOWED_ORIGINS = [
 
 USE_S3 = env('USE_S3', default=False)
 if USE_S3:
-    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID', default='')
-    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY', default='')
     AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME', default='')
-    AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME', default='')
     AWS_S3_SIGNATURE_VERSION = 's3v4'
     DEFAULT_FILE_STORAGE = 'conf.storage_backends.MediaStorage'
+    if not DEBUG:
+        STATICFILES_STORAGE = 'conf.storage_backends.StaticStorage'
 else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = ROOT_DIR / 'media'

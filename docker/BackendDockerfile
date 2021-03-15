@@ -1,5 +1,6 @@
 FROM python:3.8
 ENV PYTHONUNBUFFERED 1
+RUN apt-get update && apt-get install -y uwsgi-plugin-python3 uwsgi
 RUN mkdir /code
 WORKDIR /code
 COPY backend/requirements/base.txt /code/

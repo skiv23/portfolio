@@ -12,12 +12,13 @@ services:
     build:
       context: .
       dockerfile: docker/BackendDockerfile
-    command: /code/docker/start_backend.sh
+    command: /code/docker/start_backend_prod.sh
     volumes:
       - ./backend:/code
       - ./docker:/code/docker
+      - ~/.aws:/root/.aws
     ports:
-      - "8000:8000"
+      - "8001:8001"
     depends_on:
       - db
 
@@ -25,11 +26,10 @@ services:
     build:
       context: .
       dockerfile: docker/FrontendDockerfile
-    command: /code/docker/start_frontend.sh
+    command: /code/docker/start_frontend_prod.sh
     volumes:
       - ./frontend:/code
       - ./docker:/code/docker
-    ports:
-      - "8080:8080"
+      - ~/.aws:/root/.aws
     depends_on:
       - backend
