@@ -589,7 +589,7 @@
       position: unset;
       min-height: unset;
       margin: 0 auto;
-      background: #fff;
+      background: var(--pdf_bg_color);
       border-radius: 0;
       .cv-right {
         position: unset;

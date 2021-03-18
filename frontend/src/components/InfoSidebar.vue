@@ -27,7 +27,7 @@
       </div>
       <div class="cv-header-buttons">
         <a href="/#/?download=true" target="_blank" class="btn btn-primary cv-download">Download CV</a>
-        <theme-switch></theme-switch>
+        <ThemeSwitch/>
       </div>
     </div>
   </div>
