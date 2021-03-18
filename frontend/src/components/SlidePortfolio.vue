@@ -7,7 +7,7 @@
       <div class="row row-wrap">
         <div class="portfolio-item" @click="openModal(project)" v-for="project in projects" :key="project.id">
           <div class="portfolio-item-img">
-            <img :src="project.primary_image_url" :alt="project.name" :title="project.name">
+            <img :src="project.primary_image_url" crossorigin="anonymous" :alt="project.name" :title="project.name">
           </div>
 
           <h4 class="name">{{ project.name }}</h4>
