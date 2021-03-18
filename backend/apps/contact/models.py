@@ -4,6 +4,8 @@ import json
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from apps.core.mixins import SingleModelMixin
+
 
 class BaseContactModel(models.Model):
     text = models.CharField(max_length=64, verbose_name=_('Text'))
@@ -74,3 +76,10 @@ class ContactMeEntry(models.Model):
         if not self.id:
             pass  # TODO: send message to Telegram
         super().save(*args, **kwargs)
+
+
+class Photo(SingleModelMixin, models.Model):
+    original = models.ImageField(verbose_name=_('Original'), upload_to='photo')
+
+    def __str__(self):
+        return str(_('Portfolio Photo'))

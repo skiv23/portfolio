@@ -28,7 +28,7 @@ class Project(models.Model):
 
 
 class ProjectImage(models.Model):
-    original = models.ImageField(verbose_name=_('Original'))
+    original = models.ImageField(verbose_name=_('Original'), upload_to='projects_images')
     project = models.ForeignKey(Project, verbose_name=_('Project'), on_delete=models.CASCADE, related_name='images')
 
     def __str__(self):

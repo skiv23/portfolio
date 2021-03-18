@@ -4,8 +4,10 @@ from django.core import validators
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from apps.core.mixins import SingleModelMixin
 
-class About(models.Model):
+
+class About(SingleModelMixin, models.Model):
     description = models.TextField(verbose_name=_('Description'))
 
     def __str__(self):
@@ -15,13 +17,6 @@ class About(models.Model):
 
     class Meta:
         verbose_name_plural = _('About Entries')
-
-    def clean(self):
-        model = self.__class__
-        if model.objects.count() > 0 and self.id != model.objects.get().id:
-            raise forms.ValidationError(
-                _('There can be only 1 %(name)s instance'), params={'name': model.__name__}, code='invalid_quantity'
-            )
 
 
 class AboutInfo(models.Model):

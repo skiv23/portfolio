@@ -55,7 +55,7 @@
           autohideTime: 0,
           autoPlay: false,
         },
-        vfImages: [require('@/assets/1.jpg'), require('@/assets/2.jpg')],
+        vfImages: this.project.images,
         vfTransitions: [{
           name: 'slide',
           options: {

@@ -41,3 +41,9 @@ class ContactViewSet(ContactViewSetMixin, viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return response.Response(data=serializer.data)
+
+    @decorators.action(methods=['GET'], detail=False, url_path='photo')
+    def photo(self, request):
+        photo = models.Photo.objects.first()
+        url = photo.original.url if photo else ''
+        return response.Response(data={'url': url})

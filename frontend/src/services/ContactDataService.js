@@ -30,6 +30,10 @@ class ContactDataService {
   createContactMe(data) {
     return http.post(baseURL + 'me/', data);
   }
+
+  getPhoto() {
+    return http.get(baseURL + 'photo/');
+  }
 }
 
 export default new ContactDataService();

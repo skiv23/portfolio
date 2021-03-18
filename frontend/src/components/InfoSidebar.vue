@@ -7,7 +7,7 @@
     </div>
     <div class="cv-left" :class="{ open: sideBarOpen }">
       <div class="cv-photo">
-        <img src="../assets/photo.png" alt="photo">
+        <img :src="photoUrl" alt="photo">
       </div>
       <div class="cv-titles">
         <h2>{{ nameTitle }}</h2>
@@ -45,6 +45,7 @@
       return {
         nameTitle: '',
         roleTitle: '',
+        photoUrl: '',
         contacts: [],
         sideBarOpen: false
       }
@@ -67,6 +68,10 @@
       ContactDataService.filterByComponent('sidebar')
         .then(response => {
           this.contacts = response.data;
+        })
+      ContactDataService.getPhoto()
+        .then(response => {
+          this.photoUrl = response.data.url;
         })
     },
     methods: {
