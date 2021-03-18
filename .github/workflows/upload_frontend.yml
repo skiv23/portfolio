@@ -3,7 +3,7 @@ name: UPLOAD TO S3
 on:
   push:
     branches:
-      - actions
+      - master
 
 jobs:
   s3-upload:
