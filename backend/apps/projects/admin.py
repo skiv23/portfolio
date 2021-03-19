@@ -13,5 +13,4 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.ProjectImage)
-admin.site.register(models.ProjectTag)
 admin.site.register(models.Project, ProjectAdmin)

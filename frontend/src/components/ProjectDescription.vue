@@ -17,7 +17,7 @@
           <h3>Technology</h3>
         </div>
         <ul class="tags">
-          <li v-for="tag in project.tags" :key="tag.id"><a>{{ tag.name }}</a></li>
+          <li v-for="skill in project.skills" :key="skill.id"><a>{{ skill.name }}</a></li>
         </ul>
       </div>
 
