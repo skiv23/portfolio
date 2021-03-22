@@ -53,6 +53,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'corsheaders',
     'storages',
+    'imagekit',
 ]
 
 INSTALLED_APPS = CORE_APPS + LOCAL_APPS + THIRD_PARTY_APPS

@@ -7,7 +7,7 @@
     </div>
     <div class="cv-left" :class="{ open: sideBarOpen }">
       <div class="cv-photo">
-        <img :src="photoUrl" alt="photo">
+        <img v-show="photoUrl" :src="photoUrl" alt="photo">
       </div>
       <div class="cv-titles">
         <h2>{{ nameTitle }}</h2>
