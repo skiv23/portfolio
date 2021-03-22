@@ -16,6 +16,9 @@ class Project(models.Model):
     skills = models.ManyToManyField(Skill, verbose_name=_('Skills'))
     image_thumbnail = models.ImageField(verbose_name=_('Thumbnail'), blank=True, upload_to='thumbnails')
 
+    class Meta:
+        ordering = ['id']
+
     def __str__(self):
         return f'{self.name}'
 
